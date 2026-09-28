@@ -1,3 +1,3 @@
-# Claude API Learning Course
-
-Exercises and projects built while following the [Building with the Claude API](https://academy.claude.com/courses/building-with-the-claude-api) course.
+# Claude API Course (Powered by Gemini API)
+This repository contains exercises and projects completed while following the [Building with the Claude API](https://academy.claude.com/courses/building-with-the-claude-api) course by Anthropic Academy. 
+> **Note**: Exercises in this repository use the **Google Gemini API** (`google-genai`) to run all LLM request patterns (system prompts, streaming, tool use, structured output) for free!
