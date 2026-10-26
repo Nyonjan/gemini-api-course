@@ -64,7 +64,7 @@ Open the notebooks and select the **Python (gemini-api-course)** kernel, then Ru
 | `stream.get_final_message()` | accumulate `chunk.text` manually |
 | `client.messages.stream(...)` | `client.models.generate_content_stream(...)` |
 | `stop_sequences=["```"]` | `config.stop_sequences=["```"]` |
-| assistant prefill | ❌ rejected — `400: Requests ending with a model turn are not supported` |
+| assistant prefill | ❌ rejected by `gemini-3.6-flash` — `400: Requests ending with a model turn are not supported` |
 | — (no native JSON mode) | `config.response_mime_type="application/json"`, optional `response_schema` |
 
 ## Troubleshooting
