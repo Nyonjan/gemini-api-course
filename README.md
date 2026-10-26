@@ -13,6 +13,7 @@ This repository contains exercises and projects completed while following the [B
 | 03 | `03_system_prompts.ipynb` | Shaping behavior with `system_instruction` | Lesson 3 |
 | 04 | `04_temperature.ipynb` | Predictable vs. creative sampling | Lesson 4 |
 | 05 | `05_response_streaming.ipynb` | Streaming chunks, timings, assembled message | Lesson 7 |
+| 06 | `06_structured_data.ipynb` | Clean JSON: JSON mode + schema (prefill rejected) | Lesson 8 |
 
 Course numbering is kept from the original lessons, which is why streaming is Lesson 7.
 
@@ -62,3 +63,12 @@ Open the notebooks and select the **Python (gemini-api-course)** kernel, then Ru
 | `stream.text_stream` | yield `chunk.text` from each chunk |
 | `stream.get_final_message()` | accumulate `chunk.text` manually |
 | `client.messages.stream(...)` | `client.models.generate_content_stream(...)` |
+| `stop_sequences=["```"]` | `config.stop_sequences=["```"]` |
+| assistant prefill | ❌ rejected — `400: Requests ending with a model turn are not supported` |
+| — (no native JSON mode) | `config.response_mime_type="application/json"`, optional `response_schema` |
+
+## Troubleshooting
+
+- **`429 RESOURCE_EXHAUSTED`** — the free tier allows ~20 requests per day for `gemini-3.6-flash`. Wait for the reset time shown in the error, or change `model` in the notebooks to one with quota left.
+- **`503 UNAVAILABLE`** — the notebooks already retry this with exponential backoff in `generate_with_retry`.
+- **`ModuleNotFoundError: google` in a notebook** — the kernel isn't the venv. Select **Python (gemini-api-course)** in the kernel picker.
